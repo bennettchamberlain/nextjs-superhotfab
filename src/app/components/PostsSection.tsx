@@ -1,6 +1,9 @@
 import Link from "next/link";
 import type { Post } from "./types";
 
+const crtPath =
+  "M 100 50 Q 500 -60 900 50 Q 980 350 900 650 Q 500 760 100 650 Q 20 350 100 50 Z";
+
 interface PostsSectionProps {
   posts: Post[];
   className?: string;
@@ -8,8 +11,8 @@ interface PostsSectionProps {
 
 export default function PostsSection({ posts, className = "" }: PostsSectionProps) {
   return (
-    <section id="posts" className={`w-full py-12 bg-black flex flex-col items-center ${className}`}>
-      <h2 className="text-4xl font-bold mb-8 text-orange-400 text-large-upper text-dark-gradient">Projects</h2>
+    <section id="posts" className={`w-full py-16 flex flex-col items-center ${className}`}>
+      <h2 className="text-4xl font-bold mb-8 text-large-upper bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {posts.map((post) => (
           <Link
@@ -17,8 +20,45 @@ export default function PostsSection({ posts, className = "" }: PostsSectionProp
             key={post._id}
             className="group flex flex-col items-center hover:scale-105 transition-transform"
           >
-            <div className="tv-mask w-[260px] h-[160px] bg-black flex items-center justify-center overflow-hidden border-4 border-orange-400 shadow-lg">
-              <img src="/assets/images/project1.JPG" alt={post.title} className="object-cover w-full h-full" />
+            {/* CRT Masked Project Image */}
+            <div className="relative flex items-center justify-center w-[320px] h-[260px] md:w-[400px] md:h-[340px] py-4">
+              <svg
+                viewBox="0 0 1000 700"
+                width="100%"
+                height="100%"
+                style={{ position: "absolute", inset: 0, zIndex: 1, overflow: "visible" }}
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <clipPath id={`crtMaskProject${post._id}`}> {/* Unique ID for each project */}
+                    <path d={crtPath} />
+                  </clipPath>
+                </defs>
+                <image
+                  href="/assets/images/project1.JPG"
+                  width="1000"
+                  height="700"
+                  clipPath={`url(#crtMaskProject${post._id})`}
+                  preserveAspectRatio="none"
+                  style={{ filter: "brightness(0.6)" }}
+                />
+                {/* Black overlay for opacity */}
+                <path
+                  d={crtPath}
+                  fill="#000"
+                  opacity="0.4"
+                  style={{ zIndex: 1 }}
+                />
+                {/* Yellow border */}
+                <path
+                  d={crtPath}
+                  stroke="#FACC15"
+                  strokeWidth="8"
+                  fill="none"
+                  style={{ zIndex: 2 }}
+                />
+              </svg>
             </div>
             <h3 className="mt-4 text-2xl font-bold text-orange-200 group-hover:text-yellow-300 text-center text-large-upper">
               {post.title}

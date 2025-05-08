@@ -7,6 +7,9 @@ interface GallerySectionProps {
   className?: string;
 }
 
+const crtPath =
+  "M 100 50 Q 500 -60 900 50 Q 980 350 900 650 Q 500 760 100 650 Q 20 350 100 50 Z";
+
 export default function GallerySection({ images, className = "" }: GallerySectionProps) {
   const [current, setCurrent] = useState(0);
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
@@ -15,9 +18,9 @@ export default function GallerySection({ images, className = "" }: GallerySectio
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
   return (
-    <section id="gallery" className={`w-full flex flex-col items-center py-12 bg-gradient-to-b from-black via-yellow-950 to-black ${className}`}>
-      <h2 className="text-4xl font-bold mb-6 text-yellow-300 text-large-upper text-dark-gradient">Gallery</h2>
-      <div className="relative flex items-center justify-center w-full max-w-md">
+    <section id="gallery" className={`w-full flex flex-col items-center py-16 ${className}`}>
+      <h2 className="text-4xl font-bold mb-6 text-large-upper bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">Gallery</h2>
+      <div className="relative flex items-center justify-center w-full max-w-2xl py-6">
         {/* Desktop arrows */}
         <button
           className="hidden md:block absolute left-0 z-10 bg-black/70 rounded-full p-2 border-2 border-yellow-400 hover:bg-yellow-900 transition"
@@ -26,8 +29,45 @@ export default function GallerySection({ images, className = "" }: GallerySectio
         >
           <span className="text-2xl text-yellow-400">⏪</span>
         </button>
-        <div className="tv-mask w-[320px] h-[200px] md:w-[400px] md:h-[250px] bg-black flex items-center justify-center overflow-hidden border-4 border-yellow-400 shadow-xl">
-          <Image src={images[current]} alt={`Gallery image ${current + 1}`} width={400} height={250} className="object-cover w-full h-full" />
+        {/* CRT Masked Image */}
+        <div className="relative flex items-center justify-center w-[500px] h-[420px] md:w-[700px] md:h-[590px]">
+          <svg
+            viewBox="0 0 1000 700"
+            width="100%"
+            height="100%"
+            style={{ position: "absolute", inset: 0, zIndex: 1, overflow: "visible" }}
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <clipPath id="crtMaskGallery">
+                <path d={crtPath} />
+              </clipPath>
+            </defs>
+            <image
+              href={images[current]}
+              width="1000"
+              height="700"
+              clipPath="url(#crtMaskGallery)"
+              preserveAspectRatio="none"
+              style={{ filter: "brightness(0.6)" }}
+            />
+            {/* Black overlay for opacity */}
+            <path
+              d={crtPath}
+              fill="#000"
+              opacity="0.4"
+              style={{ zIndex: 1 }}
+            />
+            {/* Yellow border */}
+            <path
+              d={crtPath}
+              stroke="#FACC15"
+              strokeWidth="8"
+              fill="none"
+              style={{ zIndex: 2 }}
+            />
+          </svg>
         </div>
         <button
           className="hidden md:block absolute right-0 z-10 bg-black/70 rounded-full p-2 border-2 border-yellow-400 hover:bg-yellow-900 transition"

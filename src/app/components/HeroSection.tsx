@@ -6,17 +6,85 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ className = "" }: HeroSectionProps) {
+  // Symmetrical SVG path for CRT mask (1000x700 viewBox), reduced left/right bulge
+  const crtPath =
+    "M 100 50 Q 500 -60 900 50 Q 980 350 900 650 Q 500 760 100 650 Q 20 350 100 50 Z";
+
   return (
-    <section className={`flex flex-col items-center justify-center py-12 bg-black relative ${className}`}>
-      <div className="tv-mask w-[350px] h-[220px] md:w-[500px] md:h-[320px] bg-black flex items-center justify-center overflow-hidden border-4 border-yellow-400 shadow-2xl">
-        <Image src="/assets/images/project1.JPG" alt="Superhot Fabrication Project" width={500} height={320} className="object-cover w-full h-full" />
+    <section className={`w-full min-h-[100vh] flex flex-col items-center justify-center py-16 px-4 md:px-8 relative overflow-visible ${className}`}>
+      <div className="relative z-10 w-full max-w-[2000px] mx-auto flex items-center justify-center py-8">
+        {/* TV Masked Image with Overlay Content */}
+        <div className="relative w-full flex items-center justify-center">
+          {/* TV Masked Image with SVG mask */}
+          <div
+            className="relative flex items-center justify-center"
+            style={{ width: "100%", height: "850px", maxWidth: "1400px" }}
+          >
+            {/* Masked image using SVG mask */}
+            <svg
+              viewBox="0 0 1000 700"
+              width="100%"
+              height="100%"
+              style={{ position: "absolute", inset: 0, zIndex: 1, overflow: "visible" }}
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <clipPath id="crtMask">
+                  <path d={crtPath} />
+                </clipPath>
+              </defs>
+              <image
+                href="/assets/images/project1.JPG"
+                width="1000"
+                height="700"
+                clipPath="url(#crtMask)"
+                preserveAspectRatio="none"
+                style={{ filter: "brightness(0.6)" }}
+              />
+              {/* Black overlay for opacity */}
+              <path
+                d={crtPath}
+                fill="#000"
+                opacity="0.4"
+                style={{ zIndex: 1 }}
+              />
+              {/* Yellow border */}
+              <path
+                d={crtPath}
+                stroke="#FACC15"
+                strokeWidth="8"
+                fill="none"
+                style={{ zIndex: 2 }}
+              />
+            </svg>
+            {/* Overlay Content */}
+            <div className="absolute inset-0 flex items-center justify-center z-30">
+              <div className="flex items-center gap-8 md:gap-12 px-4 md:px-12 w-full justify-center">
+                <div className="animate-float flex-shrink-0">
+                  <Image
+                    src="/assets/images/superhotfin.png"
+                    alt="Superhot Fabrication Logo"
+                    width={220}
+                    height={220}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="flex flex-col max-w-[420px] md:max-w-[520px]">
+                  <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold animate-float-slow leading-tight">
+                    <span className="bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">
+                      SUPERHOT FABRICATION
+                    </span>
+                  </h1>
+                  <p className="text-xl sm:text-2xl md:text-3xl text-yellow-400/90 font-light tracking-wider animate-float-slower mt-2">
+                    we construct your concepts
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1 className="mt-8 text-5xl md:text-6xl font-extrabold text-large-upper text-dark-gradient text-center drop-shadow-lg">
-        We construct your concepts
-      </h1>
-      <p className="mt-4 text-2xl md:text-3xl text-yellow-900 italic text-center uppercase font-bold">
-        "We can probably make that"
-      </p>
     </section>
   );
 }

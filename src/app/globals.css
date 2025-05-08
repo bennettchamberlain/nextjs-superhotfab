@@ -42,15 +42,22 @@ body {
   text-fill-color: transparent;
 }
 
-/* TV mask for retro bulging square effect */
+/* TV mask for retro CRT effect using SVG path (accentuated curves) */
 .tv-mask {
-  border-radius: 32% 38% 32% 38% / 28% 38% 32% 42%;
-  box-shadow: 0 0 32px 4px #000a, 0 2px 16px 2px #ffb30055;
-  background: #181818;
   position: relative;
-  overflow: hidden;
-  /* Optional: add a slight bulge with transform */
-  transform: perspective(400px) scale(1.01, 0.98) skewY(-1deg);
+  /* SVG path for CRT bulge shape, accentuated */
+  clip-path: path('M 80 30 Q 540 -80 1000 30 Q 1080 120 1000 698 Q 540 808 80 698 Q 0 600 80 30 Z');
+  border-radius: 0;
+}
+
+.tv-mask::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* border: 4px solid #FACC15; */
+  /* clip-path: path('M 80 30 Q 540 -80 1000 30 Q 1080 120 1000 698 Q 540 808 80 698 Q 0 600 80 30 Z'); */
+  pointer-events: none;
+  z-index: 30;
 }
 
 /* TV frame slide-in animation */

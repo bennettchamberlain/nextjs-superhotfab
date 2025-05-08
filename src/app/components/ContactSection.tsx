@@ -1,6 +1,6 @@
 export default function ContactSection() {
   return (
-    <section id="contact" className="w-full py-12 flex flex-col items-center bg-gradient-to-t from-black via-red-950 to-black">
+    <section id="contact" className="w-full py-12 flex flex-col items-center">
       <h2 className="text-3xl font-bold mb-6 text-red-400">Contact Us</h2>
       <div className="flex flex-col items-center gap-4 bg-black/80 p-8 rounded-2xl border-4 border-red-400 shadow-xl">
         <div className="tv-mask w-12 h-12 bg-black border-2 border-red-400 mb-2" />
