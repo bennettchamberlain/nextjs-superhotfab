@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
+//import Image from "next/image";
 
 interface GallerySectionProps {
   images: string[];
@@ -48,32 +48,28 @@ export default function GallerySection({ images, className = "" }: GallerySectio
                 <path d={crtPath} />
               </clipPath>
             </defs>
-          </svg>
-          <div style={{ position: 'absolute', inset: 0, zIndex: 1, clipPath: 'url(#crtMaskGallery)' }}>
-            <Image
-              src={images[current]}
-              alt={`Gallery image ${current + 1}`}
-              fill
-              style={{ objectFit: 'cover', filter: 'brightness(0.6)' }}
-              sizes="(max-width: 1000px) 100vw, 1000px"
-              priority
+            <image
+              href={images[current]}
+              width="1000"
+              height="700"
+              clipPath="url(#crtMaskGallery)"
+              preserveAspectRatio="none"
+              style={{ filter: "brightness(0.6)" }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: '#000', opacity: 0.4 }} />
-          </div>
-          <svg
-            viewBox="0 0 1000 700"
-            width="100%"
-            height="100%"
-            style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: 'none' }}
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-          >
+            {/* Black overlay for opacity */}
+            <path
+              d={crtPath}
+              fill="#000"
+              opacity="0.4"
+              style={{ zIndex: 1 }}
+            />
             {/* Yellow border */}
             <path
               d={crtPath}
               stroke="#FACC15"
               strokeWidth="8"
               fill="none"
+              style={{ zIndex: 2 }}
             />
           </svg>
         </div>
@@ -108,4 +104,3 @@ export default function GallerySection({ images, className = "" }: GallerySectio
     </section>
   );
 }
-// Add tv-mask CSS in globals.css for the bulging square effect. 

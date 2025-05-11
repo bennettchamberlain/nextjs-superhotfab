@@ -1,5 +1,5 @@
 //import Link from "next/link";
-import { type Post } from "./components/types";
+//import { type Post } from "./components/types";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import GallerySection from "./components/GallerySection";
