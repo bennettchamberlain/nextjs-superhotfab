@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 //import Link from "next/link";
 //import { type Post } from "./components/types";
 import Navbar from "./components/Navbar";
@@ -15,6 +16,11 @@ import InfoSection from "./components/InfoSection";
 //]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image, body}`;
 
 //const options = { next: { revalidate: 30 } };
+
+export const metadata: Metadata = {
+  title: 'We Construct Your Concepts',
+  description: 'We Construct Your Concepts',
+};
 
 export default async function IndexPage() {
   //const posts = await client.fetch<Post[]>(POSTS_QUERY, {}, options);
