@@ -11,14 +11,14 @@ export default function HeroSection({ className = "" }: HeroSectionProps) {
     "M 100 50 Q 500 -60 900 50 Q 980 350 900 650 Q 500 760 100 650 Q 20 350 100 50 Z";
 
   return (
-    <section className={`w-full min-h-[100vh] flex flex-col items-center justify-center py-16 px-4 md:px-8 relative overflow-visible ${className}`}>
-      <div className="relative z-10 w-full max-w-[2000px] mx-auto flex items-center justify-center py-8">
+    <section className={`w-full min-h-[70vh] flex flex-col items-center justify-center py-8 px-4 md:px-8 relative overflow-visible ${className}`}>
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto flex items-center justify-center py-4">
         {/* TV Masked Image with Overlay Content */}
         <div className="relative w-full flex items-center justify-center">
           {/* TV Masked Image with SVG mask */}
           <div
             className="relative flex items-center justify-center"
-            style={{ width: "100%", height: "850px", maxWidth: "1400px" }}
+            style={{ width: "100%", height: "600px", maxWidth: "1100px" }}
           >
             {/* Masked image using SVG mask */}
             <svg

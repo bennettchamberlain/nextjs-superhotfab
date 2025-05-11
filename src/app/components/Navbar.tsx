@@ -9,7 +9,7 @@ export default function Navbar() {
       </div>
       <div className="hidden md:flex gap-8 text-2xl uppercase font-extrabold">
         <a href="#gallery" className="bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent hover:opacity-80 transition">GALLERY</a>
-        <a href="#posts" className="bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent hover:opacity-80 transition">PROJECTS</a>
+        <a href="#process" className="bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent hover:opacity-80 transition">PROCESS</a>
         <a href="#contact" className="bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent hover:opacity-80 transition">CONTACT</a>
       </div>
     </nav>

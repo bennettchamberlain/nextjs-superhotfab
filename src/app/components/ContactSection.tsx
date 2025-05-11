@@ -2,8 +2,21 @@ export default function ContactSection() {
   return (
     <section id="contact" className="w-full py-12 flex flex-col items-center">
       <h2 className="text-3xl font-bold mb-6 text-red-400">Contact Us</h2>
-      <div className="flex flex-col items-center gap-4 bg-black/80 p-8 rounded-2xl border-4 border-red-400 shadow-xl">
+      <div className="flex flex-col items-center gap-4 bg-black/80 p-8 rounded-2xl border-4 border-red-400 shadow-xl w-full max-w-2xl">
         <div className="tv-mask w-12 h-12 bg-black border-2 border-red-400 mb-2" />
+        <a
+          href="https://instagram.com/superhotfab"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFB81C] to-[#FA4616] text-black font-bold shadow-md hover:scale-105 transition"
+        >
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="20" height="20" x="2" y="2" rx="6" stroke="currentColor" strokeWidth="2" fill="none" />
+            <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2" fill="none" />
+            <circle cx="17" cy="7" r="1.2" fill="currentColor" />
+          </svg>
+          Instagram
+        </a>
         <p className="text-lg text-red-200">Email: <a href="mailto:help@superhotfab.com" className="underline hover:text-yellow-400">help@superhotfab.com</a></p>
         <p className="text-lg text-red-200">Phone: <span className="font-mono">(555) 123-4567</span></p>
       </div>

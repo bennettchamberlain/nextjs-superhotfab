@@ -20,17 +20,21 @@ export default function GallerySection({ images, className = "" }: GallerySectio
   return (
     <section id="gallery" className={`w-full flex flex-col items-center py-16 ${className}`}>
       <h2 className="text-4xl font-bold mb-6 text-large-upper bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">Gallery</h2>
-      <div className="relative flex items-center justify-center w-full max-w-2xl py-6">
+      <div className="relative flex items-center justify-center w-full max-w-5xl py-6">
         {/* Desktop arrows */}
         <button
-          className="hidden md:block absolute left-0 z-10 bg-black/70 rounded-full p-2 border-2 border-yellow-400 hover:bg-yellow-900 transition"
+          className="hidden md:flex absolute left-0 z-10 bg-black/60 hover:bg-yellow-900/80 transition rounded-full p-3 items-center justify-center"
           onClick={prev}
           aria-label="Previous"
+          style={{ boxShadow: "0 2px 8px #0007" }}
         >
-          <span className="text-2xl text-yellow-400">⏪</span>
+          {/* Left Arrow SVG */}
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 8L12 16L20 24" stroke="#FFB81C" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
         {/* CRT Masked Image */}
-        <div className="relative flex items-center justify-center w-[500px] h-[420px] md:w-[700px] md:h-[590px]">
+        <div className="relative flex items-center justify-center w-[700px] h-[420px] md:w-[1000px] md:h-[590px]">
           <svg
             viewBox="0 0 1000 700"
             width="100%"
@@ -70,11 +74,15 @@ export default function GallerySection({ images, className = "" }: GallerySectio
           </svg>
         </div>
         <button
-          className="hidden md:block absolute right-0 z-10 bg-black/70 rounded-full p-2 border-2 border-yellow-400 hover:bg-yellow-900 transition"
+          className="hidden md:flex absolute right-0 z-10 bg-black/60 hover:bg-yellow-900/80 transition rounded-full p-3 items-center justify-center"
           onClick={next}
           aria-label="Next"
+          style={{ boxShadow: "0 2px 8px #0007" }}
         >
-          <span className="text-2xl text-yellow-400">⏩</span>
+          {/* Right Arrow SVG */}
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 8L20 16L12 24" stroke="#FFB81C" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
         {/* Mobile swipe hint */}
         <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 opacity-80">
