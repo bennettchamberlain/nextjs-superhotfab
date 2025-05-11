@@ -83,7 +83,7 @@ export default async function IndexPage() {
           <div className="h-6" />
           <InfoSection
             title="Design"
-            videoUrl="/assets/images/Design.mov"
+            videoUrl="/assets/images/design.mov"
             text="With measurements and inspiration in hand, our skilled designers bring your vision to life in detailed 3D models. We meticulously craft every component, perfecting each curve, joint, and detail until the design captures exactly what you've imagined. You'll review comprehensive renderings that show your piece from every angle before we proceed. This collaborative approach ensures nothing moves forward until you're completely satisfied with the design, guaranteeing the final product will exceed your expectations."
           />
           <div className="h-6" />
