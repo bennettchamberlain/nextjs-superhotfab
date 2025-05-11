@@ -73,7 +73,7 @@ export default function MobileHeroSection({ className = "" }: MobileHeroSectionP
                 <div className="flex flex-col items-center text-center">
                   <h1 className="text-3xl sm:text-4xl font-extrabold animate-float-slow leading-tight">
                     <span className="bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">
-                      SUPERHOT FABRICATION
+                      SUPERHOT <br /> FABRICATION
                     </span>
                   </h1>
                   <p className="text-lg sm:text-xl text-yellow-400/90 font-light tracking-wider animate-float-slower mt-2">
