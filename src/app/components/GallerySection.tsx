@@ -12,7 +12,7 @@ const crtPath =
 
 export default function GallerySection({ images, className = "" }: GallerySectionProps) {
   const [current, setCurrent] = useState(0);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  //const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));

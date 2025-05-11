@@ -7,14 +7,14 @@ import GallerySection from "./components/GallerySection";
 import ContactSection from "./components/ContactSection";
 import InfoSection from "./components/InfoSection";
 
-import { client } from "@/sanity/client";
+//import { client } from "@/sanity/client";
 
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image, body}`;
+//const POSTS_QUERY = `*[
+//  _type == "post"
+//  && defined(slug.current)
+//]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image, body}`;
 
-const options = { next: { revalidate: 30 } };
+//const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
   //const posts = await client.fetch<Post[]>(POSTS_QUERY, {}, options);
