@@ -1,9 +1,9 @@
-import Link from "next/link";
+//import Link from "next/link";
 import { type Post } from "./components/types";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import GallerySection from "./components/GallerySection";
-import PostsSection from "./components/PostsSection";
+//import PostsSection from "./components/PostsSection";
 import ContactSection from "./components/ContactSection";
 import InfoSection from "./components/InfoSection";
 
@@ -17,7 +17,7 @@ const POSTS_QUERY = `*[
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const posts = await client.fetch<Post[]>(POSTS_QUERY, {}, options);
+  //const posts = await client.fetch<Post[]>(POSTS_QUERY, {}, options);
   // Placeholder gallery images
   const galleryImages = [
     "/assets/images/Gallery1.JPG",

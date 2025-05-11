@@ -8,7 +8,7 @@ export interface Post {
       _ref: string;
       _type: string;
     };
-    [key: string]: any;
+    [key: string]: unknown;
   };
-  body?: any[];
+  body?: unknown[];
 } 
