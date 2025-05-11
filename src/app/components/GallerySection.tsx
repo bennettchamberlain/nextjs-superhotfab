@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 //import Image from "next/image";
 
 interface GallerySectionProps {
@@ -17,13 +18,21 @@ export default function GallerySection({ images, className = "" }: GallerySectio
   const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: next,
+    onSwipedRight: prev,
+    preventScrollOnSwipe: true,
+    trackMouse: false
+  });
+
   return (
     <section id="gallery" className={`w-full flex flex-col items-center py-16 ${className}`}>
       <h2 className="text-4xl font-bold mb-6 text-large-upper bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">Gallery</h2>
-      <div className="relative flex items-center justify-center w-full max-w-5xl py-6">
-        {/* Desktop arrows */}
+      
+      {/* Desktop Gallery */}
+      <div className="hidden md:flex relative items-center justify-center w-full max-w-5xl py-6">
         <button
-          className="hidden md:flex absolute left-0 z-10 bg-black/60 hover:bg-yellow-900/80 transition rounded-full p-3 items-center justify-center"
+          className="absolute left-4 z-10 bg-black/60 hover:bg-yellow-900/80 transition rounded-full p-3 items-center justify-center"
           onClick={prev}
           aria-label="Previous"
           style={{ boxShadow: "0 2px 8px #0007" }}
@@ -34,7 +43,7 @@ export default function GallerySection({ images, className = "" }: GallerySectio
           </svg>
         </button>
         {/* CRT Masked Image */}
-        <div className="relative flex items-center justify-center w-[700px] h-[420px] md:w-[1000px] md:h-[590px]">
+        <div className="relative flex items-center justify-center w-[1000px] h-[590px]">
           <svg
             viewBox="0 0 1000 700"
             width="100%"
@@ -74,7 +83,7 @@ export default function GallerySection({ images, className = "" }: GallerySectio
           </svg>
         </div>
         <button
-          className="hidden md:flex absolute right-0 z-10 bg-black/60 hover:bg-yellow-900/80 transition rounded-full p-3 items-center justify-center"
+          className="absolute right-4 z-10 bg-black/60 hover:bg-yellow-900/80 transition rounded-full p-3 items-center justify-center"
           onClick={next}
           aria-label="Next"
           style={{ boxShadow: "0 2px 8px #0007" }}
@@ -84,13 +93,58 @@ export default function GallerySection({ images, className = "" }: GallerySectio
             <path d="M12 8L20 16L12 24" stroke="#FFB81C" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
+      </div>
+
+      {/* Mobile Gallery */}
+      <div className="md:hidden relative flex items-center justify-center w-full max-w-5xl py-6" {...swipeHandlers}>
+        <div className="relative flex items-center justify-center w-[350px] h-[210px]">
+          <svg
+            viewBox="0 0 1000 700"
+            width="100%"
+            height="100%"
+            style={{ position: "absolute", inset: 0, zIndex: 1, overflow: "visible" }}
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <clipPath id="crtMaskGalleryMobile">
+                <path d={crtPath} />
+              </clipPath>
+            </defs>
+            <image
+              href={images[current]}
+              width="1000"
+              height="700"
+              clipPath="url(#crtMaskGalleryMobile)"
+              preserveAspectRatio="none"
+              style={{ filter: "brightness(0.6)" }}
+            />
+            {/* Black overlay for opacity */}
+            <path
+              d={crtPath}
+              fill="#000"
+              opacity="0.4"
+              style={{ zIndex: 1 }}
+            />
+            {/* Yellow border */}
+            <path
+              d={crtPath}
+              stroke="#FACC15"
+              strokeWidth="8"
+              fill="none"
+              style={{ zIndex: 2 }}
+            />
+          </svg>
+        </div>
         {/* Mobile swipe hint */}
-        <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 opacity-80">
+        <div className="absolute bottom-[-4rem] left-1/2 -translate-x-1/2 flex gap-2 opacity-80">
           <span className="animate-bounce text-yellow-400">⬅️</span>
           <span className="text-yellow-200">Swipe</span>
           <span className="animate-bounce text-yellow-400">➡️</span>
         </div>
       </div>
+
+      {/* Dots indicator */}
       <div className="flex gap-2 mt-4">
         {images.map((_, idx) => (
           <button

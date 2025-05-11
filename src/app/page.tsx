@@ -2,7 +2,9 @@ import { Metadata } from 'next';
 //import Link from "next/link";
 //import { type Post } from "./components/types";
 import Navbar from "./components/Navbar";
+import MobileNavbar from "./components/MobileNavbar";
 import HeroSection from "./components/HeroSection";
+import MobileHeroSection from "./components/MobileHeroSection";
 import GallerySection from "./components/GallerySection";
 //import PostsSection from "./components/PostsSection";
 import ContactSection from "./components/ContactSection";
@@ -30,8 +32,8 @@ export default async function IndexPage() {
     "/assets/images/Gallery2.JPG",
     "/assets/images/Gallery3.JPG",
     "/assets/images/Gallery4.JPG",
-    "/assets/images/Gallery5.JPG",
-    "/assets/images/Gallery6.JPG",
+    "/assets/images/Gallery5.jpg",
+    "/assets/images/Gallery6.jpg",
   ];
   return (
     <main className="min-h-screen w-full font-sans bg-black relative overflow-hidden">
@@ -54,9 +56,22 @@ export default async function IndexPage() {
         <div className="absolute w-[950px] h-[950px] bg-gradient-to-tr from-[#DA291C]/[0.02] via-[#FA4616]/[0.02] to-[#FFB81C]/[0.02] rounded-full blur-3xl animate-float-slower bottom-1/3 -right-20" />
       </div>
 
-      <Navbar />
+      {/* Responsive Navbar */}
+      <div className="hidden md:block">
+        <Navbar />
+      </div>
+      <div className="block md:hidden">
+        <MobileNavbar />
+      </div>
+
       <div className="w-full">
-        <HeroSection className="tv-slide-in-left" />
+        {/* Responsive Hero Section */}
+        <div className="hidden md:block">
+          <HeroSection className="tv-slide-in-left" />
+        </div>
+        <div className="block md:hidden">
+          <MobileHeroSection className="tv-slide-in-left" />
+        </div>
         <GallerySection images={galleryImages} className="tv-slide-in-right" />
         <section id="process" className="w-full flex flex-col items-center py-16">
           <h2 className="text-4xl font-bold mb-10 text-large-upper bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">Process</h2>

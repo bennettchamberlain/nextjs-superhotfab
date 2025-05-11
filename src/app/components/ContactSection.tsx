@@ -1,9 +1,8 @@
 export default function ContactSection() {
   return (
-    <section id="contact" className="w-full py-12 flex flex-col items-center">
-      <h2 className="text-3xl font-bold mb-6 text-[#DA291C]">Contact Us</h2>
-      <div className="flex flex-col items-center gap-4 bg-black/80 p-8 rounded-2xl border-4 border-[#DA291C] shadow-xl w-full max-w-2xl">
-        <div className="tv-mask w-12 h-12 bg-black border-2 border-[#DA291C] mb-2" />
+    <section id="contact" className="w-full py-6 mb-8 flex flex-col items-center">
+      <h2 className="text-3xl font-bold mb-3 text-[#DA291C]">Contact Us</h2>
+      <div className="flex flex-col items-center gap-2 bg-black/80 p-4 rounded-2xl border-4 border-[#DA291C] shadow-xl w-full max-w-2xl">
         <a
           href="https://instagram.com/superhotfab"
           target="_blank"

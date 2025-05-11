@@ -65,6 +65,10 @@ export default function InfoSection({ imageUrl, videoUrl, title, text }: InfoSec
             <video
               src={videoUrl}
               controls
+              muted
+              autoPlay
+              loop
+              playsInline
               className="w-full rounded-lg border-4 border-yellow-400 shadow-lg max-h-[320px] md:max-h-[340px] object-contain"
               style={{ background: "#000" }}
             />
