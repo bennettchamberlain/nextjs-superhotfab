@@ -62,15 +62,8 @@ export default function GallerySection({ images, className = "" }: GallerySectio
               width="1000"
               height="700"
               clipPath="url(#crtMaskGallery)"
-              preserveAspectRatio="none"
+              preserveAspectRatio="xMidYMid meet"
               style={{ filter: "brightness(0.6)" }}
-            />
-            {/* Black overlay for opacity */}
-            <path
-              d={crtPath}
-              fill="#000"
-              opacity="0.4"
-              style={{ zIndex: 1 }}
             />
             {/* Yellow border */}
             <path
@@ -116,15 +109,8 @@ export default function GallerySection({ images, className = "" }: GallerySectio
               width="1000"
               height="700"
               clipPath="url(#crtMaskGalleryMobile)"
-              preserveAspectRatio="none"
+              preserveAspectRatio="xMidYMid meet"
               style={{ filter: "brightness(0.6)" }}
-            />
-            {/* Black overlay for opacity */}
-            <path
-              d={crtPath}
-              fill="#000"
-              opacity="0.4"
-              style={{ zIndex: 1 }}
             />
             {/* Yellow border */}
             <path

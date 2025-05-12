@@ -18,6 +18,7 @@ export default function ContactSection() {
         </a>
         <p className="text-lg text-[#DA291C]">Email: <a href="mailto:help@superhotfab.com" className="underline hover:text-yellow-400">help@superhotfab.com</a></p>
         <p className="text-lg text-[#DA291C]">Phone: <span className="font-mono">(415) 635-7014</span></p>
+        <p className="text-lg text-[#DA291C]">Address: <span className="font-mono">907 Minna St. San Francisco, CA 94103</span></p>
       </div>
     </section>
   );

@@ -9,6 +9,7 @@ import GallerySection from "./components/GallerySection";
 //import PostsSection from "./components/PostsSection";
 import ContactSection from "./components/ContactSection";
 import InfoSection from "./components/InfoSection";
+import AboutSection from "./components/AboutSection";
 
 //import { client } from "@/sanity/client";
 
@@ -72,31 +73,42 @@ export default async function IndexPage() {
         <div className="block md:hidden">
           <MobileHeroSection className="tv-slide-in-left" />
         </div>
-        <GallerySection images={galleryImages} className="tv-slide-in-right" />
+        <AboutSection className="tv-slide-in-right" />
         <section id="process" className="w-full flex flex-col items-center py-16">
           <h2 className="text-4xl font-bold mb-10 text-large-upper bg-gradient-to-r from-[#FFB81C] to-[#FA4616] bg-clip-text text-transparent">Process</h2>
           <InfoSection
             title="Measure"
             videoUrl="/assets/images/MEASUREFINAL.mp4"
-            text="We begin every project by deeply understanding your vision. Through thoughtful consultation, we capture not just dimensions, but dreams. Our team creates detailed vision boards and mood collections that translate your ideas into visual inspiration. Using state-of-the-art 3D scanning technology, we precisely measure your space down to the millimeter, ensuring perfect fit and proportion for your custom piece. This foundation of accurate measurements combined with creative insight sets the stage for truly personalized fabrication."
+            text="Full commercial interiors? That closet under the stairs? We make products that fit their spaces.
+We use 3D scanning to get an exact model of your environment to the millimeter. This makes it easier to plan right, avoid surprises, and create perfect fits. It’s fast, accurate, and gives us a solid foundation to start designing."
           />
           <div className="h-6" />
           <InfoSection
             title="Design"
-            videoUrl="/assets/images/design.mov"
-            text="With measurements and inspiration in hand, our skilled designers bring your vision to life in detailed 3D models. We meticulously craft every component, perfecting each curve, joint, and detail until the design captures exactly what you've imagined. You'll review comprehensive renderings that show your piece from every angle before we proceed. This collaborative approach ensures nothing moves forward until you're completely satisfied with the design, guaranteeing the final product will exceed your expectations."
+            videoUrl="/assets/images/design-2.mov"
+            text="From napkin sketch to polished concept—we work it out together.
+Whether you show up with a photo or just a problem, we’ll help shape the idea. We iterate in 3D, show you options, make revisions fast, and never settle for “good enough.”  
+You get to see it, move it, tweak it—before anything’s built."
           />
           <div className="h-6" />
           <InfoSection
             title="Build"
             videoUrl="/assets/images/BUILD.mp4"
-            text="When your design receives final approval, our master craftspeople take over, transforming digital precision into physical perfection. Our workshop features premium machinery and tools operated by skilled hands committed to excellence. We select superior materials and employ time-tested techniques alongside modern innovations to create pieces built to last generations. Every cut, join, and finish is executed with meticulous attention to quality, resulting in heirloom-worthy custom fabrication that stands the test of time."
+            text="Then we make it for real. No compromises.
+ We build everything in-house—no outsourcing, no dilution.
+ What you see in the render is what you get in the space.
+ Clean welds, solid materials, sharp details. Built once, built right."
           />
         </section>
+        <GallerySection images={galleryImages} className="tv-slide-in-right" />
         <div className="max-w-4xl mx-auto px-2 md:px-8">
           <ContactSection />
         </div>
       </div>
+      {/* Copyright Footer */}
+      <footer className="w-full py-4 text-center text-yellow-400/80 text-sm border-t border-yellow-400/20">
+        <p>© {new Date().getFullYear()} Superhot Fabrication. All rights reserved.</p>
+      </footer>
     </main>
   );
 }
