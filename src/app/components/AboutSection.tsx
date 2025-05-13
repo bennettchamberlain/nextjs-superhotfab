@@ -11,7 +11,7 @@ export default function AboutSection({ className = "" }: AboutSectionProps) {
             We Solve Problems
           </h2>
           <p className="text-lg md:text-xl text-yellow-100 leading-relaxed">
-            Got a weird idea? A unique problem? No one's willing to help? We'll push through all and any obstacles to build you something beautiful and functional. From one-off showpieces, to pimpin' build-outs, we make real what other shops won't quote. We love challenges.
+            Got a weird idea? A unique problem? No one&apos;s willing to help? We&apos;ll push through all and any obstacles to build you something beautiful and functional. From one-off showpieces, to pimpin&apos; build-outs, we make real what other shops won&apos;t quote. We love challenges.
           </p>
         </div>
         

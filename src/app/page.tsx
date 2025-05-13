@@ -80,15 +80,15 @@ export default async function IndexPage() {
             title="Measure"
             videoUrl="/assets/images/MEASUREFINAL.mp4"
             text="Full commercial interiors? That closet under the stairs? We make products that fit their spaces.
-We use 3D scanning to get an exact model of your environment to the millimeter. This makes it easier to plan right, avoid surprises, and create perfect fits. It’s fast, accurate, and gives us a solid foundation to start designing."
+We use 3D scanning to get an exact model of your environment to the millimeter. This makes it easier to plan right, avoid surprises, and create perfect fits. It&apos;s fast, accurate, and gives us a solid foundation to start designing."
           />
           <div className="h-6" />
           <InfoSection
             title="Design"
             videoUrl="/assets/images/design-2.mov"
             text="From napkin sketch to polished concept—we work it out together.
-Whether you show up with a photo or just a problem, we’ll help shape the idea. We iterate in 3D, show you options, make revisions fast, and never settle for “good enough.”  
-You get to see it, move it, tweak it—before anything’s built."
+Whether you show up with a photo or just a problem, we&apos;ll help shape the idea. We iterate in 3D, show you options, make revisions fast, and never settle for &quot;good enough.&quot;  
+You get to see it, move it, tweak it—before anything&apos;s built."
           />
           <div className="h-6" />
           <InfoSection
